@@ -8,9 +8,23 @@ using namespace std;
 
 int main()
 {
+    double x = 0.0;
+    double y = 0.0;
+    double result = 0.0;
+    char oper = '+';
+
     cout << "Calculator Console Application" << endl << endl; 
     cout << "Please enter the operation to perform. Format: a+b | a-b | a*b | a/b"
         << endl;
+
+    Calculator c;
+    while (true)
+    {
+        cin >> x >> oper >> y;
+        result = c.Calculate(x, oper, y);
+        cout << "Result is: " << result << endl;
+    }
+
     return 0;
 }
 
@@ -24,3 +38,20 @@ int main()
 //   4. Use the Error List window to view errors
 //   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
 //   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+
+double Calculator::Calculate(double x, char oper, double y)
+{
+    switch (oper)
+    {
+        case '+':
+            return x + y;
+        case '-':
+            return x - y;
+        case '*':
+            return x * y;
+        case '/':
+            return x / y;
+        default:
+            return 0.0;
+    }
+}
